@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SPA、SEO和SSR三者有什么区别 | 一颗石子激起的浪花</title>
+    <meta name="description" content="经不住流年似水，逃不过此间少年">
+    <link rel="icon" href="/me.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.92830278.css" as="style"><link rel="preload" href="/assets/js/app.6c43a8ba.js" as="script"><link rel="preload" href="/assets/js/4.c3bde6d6.js" as="script"><link rel="preload" href="/assets/js/1.0b311d40.js" as="script"><link rel="preload" href="/assets/js/44.c03b7fa9.js" as="script"><link rel="prefetch" href="/assets/js/10.22efda82.js"><link rel="prefetch" href="/assets/js/11.122508c3.js"><link rel="prefetch" href="/assets/js/12.4e32ad98.js"><link rel="prefetch" href="/assets/js/13.bf84d324.js"><link rel="prefetch" href="/assets/js/14.5c5b7f74.js"><link rel="prefetch" href="/assets/js/15.84f9dd89.js"><link rel="prefetch" href="/assets/js/16.c612419e.js"><link rel="prefetch" href="/assets/js/17.594239d1.js"><link rel="prefetch" href="/assets/js/18.39405176.js"><link rel="prefetch" href="/assets/js/19.46b55618.js"><link rel="prefetch" href="/assets/js/20.6483f6bd.js"><link rel="prefetch" href="/assets/js/21.28ffff2c.js"><link rel="prefetch" href="/assets/js/22.e987c6c0.js"><link rel="prefetch" href="/assets/js/23.f5cf285c.js"><link rel="prefetch" href="/assets/js/24.bd39e29b.js"><link rel="prefetch" href="/assets/js/25.653be34d.js"><link rel="prefetch" href="/assets/js/26.c1b49b41.js"><link rel="prefetch" href="/assets/js/27.545a7557.js"><link rel="prefetch" href="/assets/js/28.19c7c106.js"><link rel="prefetch" href="/assets/js/29.71d8f226.js"><link rel="prefetch" href="/assets/js/30.ce44c73e.js"><link rel="prefetch" href="/assets/js/31.6967c391.js"><link rel="prefetch" href="/assets/js/32.9d62c420.js"><link rel="prefetch" href="/assets/js/33.610c3395.js"><link rel="prefetch" href="/assets/js/34.ea085f19.js"><link rel="prefetch" href="/assets/js/35.1ca64446.js"><link rel="prefetch" href="/assets/js/36.0a94a6a3.js"><link rel="prefetch" href="/assets/js/37.0cb5d3f8.js"><link rel="prefetch" href="/assets/js/38.90a1b6d5.js"><link rel="prefetch" href="/assets/js/39.f3a9682f.js"><link rel="prefetch" href="/assets/js/40.6ccfb534.js"><link rel="prefetch" href="/assets/js/41.60780922.js"><link rel="prefetch" href="/assets/js/42.ee67625a.js"><link rel="prefetch" href="/assets/js/43.279eedf9.js"><link rel="prefetch" href="/assets/js/45.6dc104ac.js"><link rel="prefetch" href="/assets/js/46.3675ee32.js"><link rel="prefetch" href="/assets/js/47.69b2af5f.js"><link rel="prefetch" href="/assets/js/48.36f2e381.js"><link rel="prefetch" href="/assets/js/49.1944fc1b.js"><link rel="prefetch" href="/assets/js/5.b86013de.js"><link rel="prefetch" href="/assets/js/50.f0b6ecad.js"><link rel="prefetch" href="/assets/js/51.e23cb380.js"><link rel="prefetch" href="/assets/js/52.b18c3dd4.js"><link rel="prefetch" href="/assets/js/53.19ede3ff.js"><link rel="prefetch" href="/assets/js/54.302f4a46.js"><link rel="prefetch" href="/assets/js/55.a847db5c.js"><link rel="prefetch" href="/assets/js/56.46a883a5.js"><link rel="prefetch" href="/assets/js/57.dbc23a94.js"><link rel="prefetch" href="/assets/js/58.6932db49.js"><link rel="prefetch" href="/assets/js/59.53e8939e.js"><link rel="prefetch" href="/assets/js/6.a3bcf7c4.js"><link rel="prefetch" href="/assets/js/60.3b3d2f9b.js"><link rel="prefetch" href="/assets/js/61.e43c6f36.js"><link rel="prefetch" href="/assets/js/62.583652e3.js"><link rel="prefetch" href="/assets/js/63.e8860641.js"><link rel="prefetch" href="/assets/js/64.13ebc5ad.js"><link rel="prefetch" href="/assets/js/65.e9c8e7ea.js"><link rel="prefetch" href="/assets/js/66.fa52a850.js"><link rel="prefetch" href="/assets/js/67.f706d6af.js"><link rel="prefetch" href="/assets/js/7.01e04509.js"><link rel="prefetch" href="/assets/js/8.b66213d7.js"><link rel="prefetch" href="/assets/js/9.f05367e5.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.f9b1147b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.92830278.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container"><div><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/photo.png" alt="一颗石子激起的浪花" class="logo"> <span class="site-name">一颗石子激起的浪花</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="theme-options"><!----> <div class="dark-theme-options toggle-option"><label for="dark-theme-toggle">Enable Dark Theme?</label> <input id="dark-theme-toggle" type="checkbox" checked="checked"></div></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  HOME
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/category/react.html" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/category/css.html" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/category/Egret.html" class="nav-link"><i class="iconfont undefined"></i>
+  Egret
+</a></li><li class="dropdown-item"><!----> <a href="/category/前端基础.html" class="nav-link"><i class="iconfont undefined"></i>
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/category/拓展.html" class="nav-link"><i class="iconfont undefined"></i>
+  拓展
+</a></li><li class="dropdown-item"><!----> <a href="/category/RN.html" class="nav-link"><i class="iconfont undefined"></i>
+  RN
+</a></li><li class="dropdown-item"><!----> <a href="/category/tool.html" class="nav-link"><i class="iconfont undefined"></i>
+  tool
+</a></li><li class="dropdown-item"><!----> <a href="/category/vue.html" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><a href="/hobby/" class="nav-link"><i class="iconfont reco-document"></i>
+  诗和远方
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  短文
+</a></div><div class="nav-item"><a href="/link/" class="nav-link"><i class="iconfont reco-other"></i>
+  拓展
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      CONTACT
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/yangxiansheng1992" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.cnblogs.com/thomas-yang-github/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bokeyuan"></i>
+  博客园
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/6dfa7cc0b6b5" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/hobby/wechat.html" class="nav-link"><i class="iconfont reco-wechat"></i>
+  微信公众号
+</a></li><li class="dropdown-item"><!----> <a href="https://freecodecamp.cn/yangxiansheng1992" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  freecodecamp
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://leetcode-cn.com/u/yang-xian-sheng-e/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  leetcode-cn
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://codepen.io/dashboard/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  codepen
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  HOME
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/category/react.html" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/category/css.html" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/category/Egret.html" class="nav-link"><i class="iconfont undefined"></i>
+  Egret
+</a></li><li class="dropdown-item"><!----> <a href="/category/前端基础.html" class="nav-link"><i class="iconfont undefined"></i>
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/category/拓展.html" class="nav-link"><i class="iconfont undefined"></i>
+  拓展
+</a></li><li class="dropdown-item"><!----> <a href="/category/RN.html" class="nav-link"><i class="iconfont undefined"></i>
+  RN
+</a></li><li class="dropdown-item"><!----> <a href="/category/tool.html" class="nav-link"><i class="iconfont undefined"></i>
+  tool
+</a></li><li class="dropdown-item"><!----> <a href="/category/vue.html" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><a href="/hobby/" class="nav-link"><i class="iconfont reco-document"></i>
+  诗和远方
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  短文
+</a></div><div class="nav-item"><a href="/link/" class="nav-link"><i class="iconfont reco-other"></i>
+  拓展
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      CONTACT
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/yangxiansheng1992" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.cnblogs.com/thomas-yang-github/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bokeyuan"></i>
+  博客园
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/6dfa7cc0b6b5" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/hobby/wechat.html" class="nav-link"><i class="iconfont reco-wechat"></i>
+  微信公众号
+</a></li><li class="dropdown-item"><!----> <a href="https://freecodecamp.cn/yangxiansheng1992" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  freecodecamp
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://leetcode-cn.com/u/yang-xian-sheng-e/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  leetcode-cn
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://codepen.io/dashboard/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  codepen
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>SPA、SEO和SSR三者有什么区别</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/other/SPA%E3%80%81SEO%E5%92%8CSSR%E4%B8%89%E8%80%85%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.html#spa通俗的说就是单页面应用（single-page-application）" class="sidebar-link">SPA通俗的说就是单页面应用（single page application）</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/other/SPA%E3%80%81SEO%E5%92%8CSSR%E4%B8%89%E8%80%85%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.html#seo通俗的说就是搜索引擎优化-search-engine-optimization" class="sidebar-link">SEO通俗的说就是搜索引擎优化(search engine optimization)</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/other/SPA%E3%80%81SEO%E5%92%8CSSR%E4%B8%89%E8%80%85%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.html#spa与seo的冲突" class="sidebar-link">SPA与SEO的冲突</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/other/SPA%E3%80%81SEO%E5%92%8CSSR%E4%B8%89%E8%80%85%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.html#ssr通俗的说就是服务器端渲染-server-side-rendering" class="sidebar-link">SSR通俗的说就是服务器端渲染(server side rendering)</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/other/SPA%E3%80%81SEO%E5%92%8CSSR%E4%B8%89%E8%80%85%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.html#总结" class="sidebar-link">总结</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <div><main class="page reco-hide"> <div class="page-title"><h1>SPA、SEO和SSR三者有什么区别</h1> <hr> <div data-v-362e684e><i class="iconfont reco-account" data-v-362e684e><span data-v-362e684e>Thomas</span></i> <i class="iconfont reco-date" data-v-362e684e><span data-v-362e684e>2019-12-2</span></i> <span id="/views/other/SPA%E3%80%81SEO%E5%92%8CSSR%E4%B8%89%E8%80%85%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-2e99e05a data-v-362e684e><i class="iconfont reco-eye" style="margin-right: .5rem" data-v-2e99e05a></i> <a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;" data-v-2e99e05a></a></span> <i class="iconfont reco-tag tags" data-v-362e684e><span class="tag-item" data-v-362e684e>
+      拓展
+    </span></i></div></div> <div class="content__default"><h2 id="spa通俗的说就是单页面应用（single-page-application）"><a href="#spa通俗的说就是单页面应用（single-page-application）" aria-hidden="true" class="header-anchor">#</a> <strong>SPA通俗的说就是单页面应用（single page application）</strong></h2> <p>SPA是一种 网络应用程序(WebApp)模型。在传统的网站中，不同的页面之间的切换都是直接从服务器加载一整个新的页面，而在SPA这个模型中，是通过动态地重写页面的部分与用户交互，而避免了过多的数据交换，响应速度自然相对更高。</p> <p><strong>优点</strong>
+页面之间的切换非常快
+一定程度减少了后端服务器的压力
+后端程序只需要提供api，不需要客户端到底是web端还是手机等</p> <p><strong>缺点</strong>
+首屏打开速度很慢，因为用户首次加载需要先下载SPA框架及应用程序的代码，然后再渲染页面。
+不利于SEO搜索引擎优化</p> <h2 id="seo通俗的说就是搜索引擎优化-search-engine-optimization"><a href="#seo通俗的说就是搜索引擎优化-search-engine-optimization" aria-hidden="true" class="header-anchor">#</a> <strong>SEO通俗的说就是搜索引擎优化(search engine optimization)</strong></h2> <p>SEO（Search Engine Optimization），中文一般译作：搜索引擎优化。SEO是一种通过了解搜索引擎的运作规则（如何抓取网站页面，如何索引以及如何根据特定的关键字展现搜索结果排序等）来调整网站，以提高该网站在搜索引擎中某些关键词的搜索结果排名</p> <p>搜索引擎优化中的技术大致可以分两类：白帽技术与黑帽技术，</p> <h2 id="spa与seo的冲突"><a href="#spa与seo的冲突" aria-hidden="true" class="header-anchor">#</a> <strong>SPA与SEO的冲突</strong></h2> <p>前面我们谈到的SPA不利于SEO，因为就目前而言，部分搜索引擎如Google、bing等，它们的爬虫虽然已经支持执行JS甚至是通过AJAX获取数据了，但是对于异步数据的支持也还不足(也可能是搜索引擎提供商觉得没必要)，Vue SSR中是这样说的：</p> <blockquote><p>如果你的应用程序初始展示 loading 菊花图，然后通过 Ajax 获取内容，抓取工具并不会等待异步完成后再行抓取页面内容。</p></blockquote> <p>前面也谈到过SPA应用中，通常通过AJAX获取数据，而这里就难以保证我们的页面能被搜索引擎正常收录到。并且有一些搜索引擎不支持执行JS和通过AJAX获取数据，那就更不用提SEO了。
+对于有些主要以内容输出为主网站而言，SEO显得至关重要</p> <h2 id="ssr通俗的说就是服务器端渲染-server-side-rendering"><a href="#ssr通俗的说就是服务器端渲染-server-side-rendering" aria-hidden="true" class="header-anchor">#</a> <strong>SSR通俗的说就是服务器端渲染(server side rendering)</strong></h2> <p><strong>优点</strong></p> <ul><li>更快的响应时间，不用等待所有的js都下载完成，浏览器变成显示比较完整的页面</li> <li>更好的SSR，我们可以将SEO的关键信息直接在后台就渲染成html，从而保证搜索引擎的爬虫都能爬取到关键数据</li></ul> <p><strong>缺点</strong></p> <ul><li>占用更多的cpu和内存资源</li> <li>一些常用的浏览器的api可能无法正常使用，比如window，document，alert等，如果使用的话需要对运行环境加以判断</li> <li>开发调试会有一些麻烦，因为涉及到了浏览器及服务器，对于SPA的一些组件的声明周期的管理会变得复杂</li> <li>可能会由于某些因素导致服务器渲染的结果与浏览器端的结果不一致。</li></ul> <p><strong>前后端分离的概念</strong>
+传统的web前后端开发大多是前端将页面写好，让后端将页面集成到项目中，这里就存着一个前后端耦合的问题，首先对于后端来说，不仅要写后端逻辑，还得要集成前端页面。对于前端来说，也不是很轻松就能看到页面的真正渲染出来的样子，这样 肯定是不利于开发调试的，效率自然也就成了问题。针对上述问题，前后端分离的思想应运而生。</p> <p>基本概念
+前后端根据AJAX接口进行数据的交互，目前常见的是后端直接将数据已JSON的格式返回给前端，前端根据后端服务器返回的数据，操作DOM。</p> <p>主要优点
+分工明确，前后端各司其职，后端专注业务逻辑和功能的实现，前端专注页面实现和渲染。
+接口明确，并行开发。在后端接口没有实现好之前，前端可以自己模拟接口提供测试数据。
+提高开发效率，一定程度上减少了前后端的沟通成本</p> <h2 id="总结"><a href="#总结" aria-hidden="true" class="header-anchor">#</a> <strong>总结</strong></h2> <p>前后端分离降低了前端和都端的耦合度，提高了开发效率；
+SPA是前后端分离中前端的一种解决方案；
+SEO对于跟多网站很重要而普通的SPA又不利于SEO；
+SSR的出现一定成都上解决了SPA首屏慢的问题，又极大减少了普通SPA对于SEO的不利影响。</p></div> <!----> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Thomas: </span> <span class="time">12/2/2019, 1:58:58 PM</span></div></footer> <!----> </main> <div class="valine-wrapper" data-v-5029e45b><div id="valine" data-v-5029e45b></div></div></div> <div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;background-color:rgba(231, 234, 241,.5);display:none;" data-v-cd623d78 data-v-cd623d78><i class="iconfont reco-up" data-v-cd623d78></i></div></div></div></div><div class="global-ui"><SWUpdatePopup></SWUpdatePopup></div></div>
+    <script src="/assets/js/app.6c43a8ba.js" defer></script><script src="/assets/js/4.c3bde6d6.js" defer></script><script src="/assets/js/1.0b311d40.js" defer></script><script src="/assets/js/44.c03b7fa9.js" defer></script>
+  </body>
+</html>

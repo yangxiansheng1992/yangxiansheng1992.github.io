@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>函数式编程初探 | 一颗石子激起的浪花</title>
+    <meta name="description" content="经不住流年似水，逃不过此间少年">
+    <link rel="icon" href="/me.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.92830278.css" as="style"><link rel="preload" href="/assets/js/app.6c43a8ba.js" as="script"><link rel="preload" href="/assets/js/4.c3bde6d6.js" as="script"><link rel="preload" href="/assets/js/1.0b311d40.js" as="script"><link rel="preload" href="/assets/js/37.0cb5d3f8.js" as="script"><link rel="prefetch" href="/assets/js/10.22efda82.js"><link rel="prefetch" href="/assets/js/11.122508c3.js"><link rel="prefetch" href="/assets/js/12.4e32ad98.js"><link rel="prefetch" href="/assets/js/13.bf84d324.js"><link rel="prefetch" href="/assets/js/14.5c5b7f74.js"><link rel="prefetch" href="/assets/js/15.84f9dd89.js"><link rel="prefetch" href="/assets/js/16.c612419e.js"><link rel="prefetch" href="/assets/js/17.594239d1.js"><link rel="prefetch" href="/assets/js/18.39405176.js"><link rel="prefetch" href="/assets/js/19.46b55618.js"><link rel="prefetch" href="/assets/js/20.6483f6bd.js"><link rel="prefetch" href="/assets/js/21.28ffff2c.js"><link rel="prefetch" href="/assets/js/22.e987c6c0.js"><link rel="prefetch" href="/assets/js/23.f5cf285c.js"><link rel="prefetch" href="/assets/js/24.bd39e29b.js"><link rel="prefetch" href="/assets/js/25.653be34d.js"><link rel="prefetch" href="/assets/js/26.c1b49b41.js"><link rel="prefetch" href="/assets/js/27.545a7557.js"><link rel="prefetch" href="/assets/js/28.19c7c106.js"><link rel="prefetch" href="/assets/js/29.71d8f226.js"><link rel="prefetch" href="/assets/js/30.ce44c73e.js"><link rel="prefetch" href="/assets/js/31.6967c391.js"><link rel="prefetch" href="/assets/js/32.9d62c420.js"><link rel="prefetch" href="/assets/js/33.610c3395.js"><link rel="prefetch" href="/assets/js/34.ea085f19.js"><link rel="prefetch" href="/assets/js/35.1ca64446.js"><link rel="prefetch" href="/assets/js/36.0a94a6a3.js"><link rel="prefetch" href="/assets/js/38.90a1b6d5.js"><link rel="prefetch" href="/assets/js/39.f3a9682f.js"><link rel="prefetch" href="/assets/js/40.6ccfb534.js"><link rel="prefetch" href="/assets/js/41.60780922.js"><link rel="prefetch" href="/assets/js/42.ee67625a.js"><link rel="prefetch" href="/assets/js/43.279eedf9.js"><link rel="prefetch" href="/assets/js/44.c03b7fa9.js"><link rel="prefetch" href="/assets/js/45.6dc104ac.js"><link rel="prefetch" href="/assets/js/46.3675ee32.js"><link rel="prefetch" href="/assets/js/47.69b2af5f.js"><link rel="prefetch" href="/assets/js/48.36f2e381.js"><link rel="prefetch" href="/assets/js/49.1944fc1b.js"><link rel="prefetch" href="/assets/js/5.b86013de.js"><link rel="prefetch" href="/assets/js/50.f0b6ecad.js"><link rel="prefetch" href="/assets/js/51.e23cb380.js"><link rel="prefetch" href="/assets/js/52.b18c3dd4.js"><link rel="prefetch" href="/assets/js/53.19ede3ff.js"><link rel="prefetch" href="/assets/js/54.302f4a46.js"><link rel="prefetch" href="/assets/js/55.a847db5c.js"><link rel="prefetch" href="/assets/js/56.46a883a5.js"><link rel="prefetch" href="/assets/js/57.dbc23a94.js"><link rel="prefetch" href="/assets/js/58.6932db49.js"><link rel="prefetch" href="/assets/js/59.53e8939e.js"><link rel="prefetch" href="/assets/js/6.a3bcf7c4.js"><link rel="prefetch" href="/assets/js/60.3b3d2f9b.js"><link rel="prefetch" href="/assets/js/61.e43c6f36.js"><link rel="prefetch" href="/assets/js/62.583652e3.js"><link rel="prefetch" href="/assets/js/63.e8860641.js"><link rel="prefetch" href="/assets/js/64.13ebc5ad.js"><link rel="prefetch" href="/assets/js/65.e9c8e7ea.js"><link rel="prefetch" href="/assets/js/66.fa52a850.js"><link rel="prefetch" href="/assets/js/67.f706d6af.js"><link rel="prefetch" href="/assets/js/7.01e04509.js"><link rel="prefetch" href="/assets/js/8.b66213d7.js"><link rel="prefetch" href="/assets/js/9.f05367e5.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.f9b1147b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.92830278.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container"><div><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/photo.png" alt="一颗石子激起的浪花" class="logo"> <span class="site-name">一颗石子激起的浪花</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="theme-options"><!----> <div class="dark-theme-options toggle-option"><label for="dark-theme-toggle">Enable Dark Theme?</label> <input id="dark-theme-toggle" type="checkbox" checked="checked"></div></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  HOME
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/category/react.html" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/category/css.html" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/category/Egret.html" class="nav-link"><i class="iconfont undefined"></i>
+  Egret
+</a></li><li class="dropdown-item"><!----> <a href="/category/前端基础.html" class="nav-link"><i class="iconfont undefined"></i>
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/category/拓展.html" class="nav-link"><i class="iconfont undefined"></i>
+  拓展
+</a></li><li class="dropdown-item"><!----> <a href="/category/RN.html" class="nav-link"><i class="iconfont undefined"></i>
+  RN
+</a></li><li class="dropdown-item"><!----> <a href="/category/tool.html" class="nav-link"><i class="iconfont undefined"></i>
+  tool
+</a></li><li class="dropdown-item"><!----> <a href="/category/vue.html" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><a href="/hobby/" class="nav-link"><i class="iconfont reco-document"></i>
+  诗和远方
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  短文
+</a></div><div class="nav-item"><a href="/link/" class="nav-link"><i class="iconfont reco-other"></i>
+  拓展
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      CONTACT
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/yangxiansheng1992" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.cnblogs.com/thomas-yang-github/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bokeyuan"></i>
+  博客园
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/6dfa7cc0b6b5" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/hobby/wechat.html" class="nav-link"><i class="iconfont reco-wechat"></i>
+  微信公众号
+</a></li><li class="dropdown-item"><!----> <a href="https://freecodecamp.cn/yangxiansheng1992" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  freecodecamp
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://leetcode-cn.com/u/yang-xian-sheng-e/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  leetcode-cn
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://codepen.io/dashboard/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  codepen
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  HOME
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/category/react.html" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/category/css.html" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/category/Egret.html" class="nav-link"><i class="iconfont undefined"></i>
+  Egret
+</a></li><li class="dropdown-item"><!----> <a href="/category/前端基础.html" class="nav-link"><i class="iconfont undefined"></i>
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/category/拓展.html" class="nav-link"><i class="iconfont undefined"></i>
+  拓展
+</a></li><li class="dropdown-item"><!----> <a href="/category/RN.html" class="nav-link"><i class="iconfont undefined"></i>
+  RN
+</a></li><li class="dropdown-item"><!----> <a href="/category/tool.html" class="nav-link"><i class="iconfont undefined"></i>
+  tool
+</a></li><li class="dropdown-item"><!----> <a href="/category/vue.html" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><a href="/hobby/" class="nav-link"><i class="iconfont reco-document"></i>
+  诗和远方
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  短文
+</a></div><div class="nav-item"><a href="/link/" class="nav-link"><i class="iconfont reco-other"></i>
+  拓展
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      CONTACT
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/yangxiansheng1992" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.cnblogs.com/thomas-yang-github/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bokeyuan"></i>
+  博客园
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/6dfa7cc0b6b5" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/hobby/wechat.html" class="nav-link"><i class="iconfont reco-wechat"></i>
+  微信公众号
+</a></li><li class="dropdown-item"><!----> <a href="https://freecodecamp.cn/yangxiansheng1992" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  freecodecamp
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://leetcode-cn.com/u/yang-xian-sheng-e/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  leetcode-cn
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://codepen.io/dashboard/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  codepen
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>函数式编程初探</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/nativeJs/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%88%9D%E6%8E%A2.html#函数式编程初探" class="sidebar-link">函数式编程初探</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/views/nativeJs/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%88%9D%E6%8E%A2.html#高阶函数的定义" class="sidebar-link">高阶函数的定义</a></li><li class="sidebar-sub-header"><a href="/views/nativeJs/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%88%9D%E6%8E%A2.html#从函数式编程到节流函数；" class="sidebar-link">从函数式编程到节流函数；</a></li><li class="sidebar-sub-header"><a href="/views/nativeJs/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%88%9D%E6%8E%A2.html#纯函数" class="sidebar-link">纯函数</a></li><li class="sidebar-sub-header"><a href="/views/nativeJs/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%88%9D%E6%8E%A2.html#柯里化" class="sidebar-link">柯里化</a></li><li class="sidebar-sub-header"><a href="/views/nativeJs/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%88%9D%E6%8E%A2.html#代码组合" class="sidebar-link">代码组合</a></li><li class="sidebar-sub-header"><a href="/views/nativeJs/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%88%9D%E6%8E%A2.html#结合使用" class="sidebar-link">结合使用</a></li><li class="sidebar-sub-header"><a href="/views/nativeJs/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%88%9D%E6%8E%A2.html#如何在项目中正式使用函数式编程" class="sidebar-link">如何在项目中正式使用函数式编程</a></li><li class="sidebar-sub-header"><a href="/views/nativeJs/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%88%9D%E6%8E%A2.html#扩展" class="sidebar-link">扩展</a></li></ul></li></ul></section></li></ul> </aside> <div><main class="page reco-hide"> <div class="page-title"><h1>函数式编程初探</h1> <hr> <div data-v-362e684e><i class="iconfont reco-account" data-v-362e684e><span data-v-362e684e>Thomas</span></i> <i class="iconfont reco-date" data-v-362e684e><span data-v-362e684e>2019-9-3</span></i> <span id="/views/nativeJs/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%88%9D%E6%8E%A2.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-2e99e05a data-v-362e684e><i class="iconfont reco-eye" style="margin-right: .5rem" data-v-2e99e05a></i> <a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;" data-v-2e99e05a></a></span> <i class="iconfont reco-tag tags" data-v-362e684e><span class="tag-item" data-v-362e684e>
+      前端基础
+    </span></i></div></div> <div class="content__default"><h2 id="函数式编程初探"><a href="#函数式编程初探" aria-hidden="true" class="header-anchor">#</a> 函数式编程初探</h2> <div class="tip custom-block"><p class="custom-block-title">前言</p> <p>继&quot;面向对象编程&quot;之后，&quot;函数式编程&quot;会成为另一种编程的主流范式（paradigm），也就是如何编写程序的方法论。那什么是编程范式呢？这里我引用一段来自维基百科关于编程范式的说明贴在下面</p></div> <blockquote><p>编程范例是一种根据编程语言的特性对编程语言进行分类的方法。语言可以分为多种范例。一些范例主要涉及对语言执行模型的影响，例如允许副作用，或者操作序列是否由执行模型定义。其他范例主要关注代码的组织方式，例如将代码分组为单元以及代码修改的状态。还有一些人主要关注语法和语法的风格。<br>
+常见的编程范例包括：</p></blockquote> <ul><li>程序员指示机器如何改变其状态的必要性，
+<ul><li>程序这组指令转换成程序，</li> <li>面向对象的，它将指令与它们所处的状态部分组合在一起，</li></ul></li> <li>声明中，程序员只声明了期望的结果的性质，但不知道如何计算它
+<ul><li>功能，其中所期望的结果被声明为一系列功能应用的价值，</li> <li>将所需结果声明为关于事实和规则系统的问题的答案的逻辑，</li> <li>数学，其中所需结果被声明为优化问题的解决方案</li></ul></li></ul> <blockquote><p>编程范式从概念上来讲指的是编程的基本风格和典范模式。<br>
+换句话说其实就是程序员对于如何使用编程来解决问题的世界观和方法论。<br>
+如果把一门编程语言比作兵器，它的语法、工具和技巧等是招法，那么它采用的编程范式也就是是内功心法。</p></blockquote> <p><strong>ok,理论就简单的说这些，有一点理解就好，那么们来窥探这一方世界吧，let's go</strong></p> <h3 id="高阶函数的定义"><a href="#高阶函数的定义" aria-hidden="true" class="header-anchor">#</a> 高阶函数的定义</h3> <hr>
+要是想要弄明白函数式编程首先要明白什么是高阶函数。
+<blockquote><p>函数可以作为参数被传递 <br>
+函数可以作为返回值输出</p></blockquote> <p>明白这个初步定义后，那我们来看一点小例子：</p> <p><strong>使用ES6自带的高阶函数来编写代码</strong><br>
+假如，我们有这样一个数组：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const classA = [
+    {
+        name: '张三',
+        age: 17
+    },
+    {
+        name: '李四',
+        age: 15
+    },
+    {
+        name: '王五',
+        age: 16
+    },
+]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>有一个需求，是找出班级中16岁年纪的学生，我们使用低阶函数做筛选是这样的：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let student = [];
+for (let i = 0; i &lt; classA.length; i++) {
+    if (classA[i].age === 16) {
+        student.push(class[i])
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>使用高阶函数是这样的：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const student = classA.filter( item =&gt; item.age === 16 )
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>那么使用这样的高阶函数有什么好处呢，有<strong>两点:</strong></p> <ul><li>第一，同等复杂度的代码，高阶函数能让实现更加简单</li> <li>第二，高阶函数能够非常方便的拆分逻辑</li></ul> <p>比如说，这样一个筛选学生的函数，可以拆成两部分：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const isAge = item =&gt; item.age === 16;
+const result = classA.filter(isAge);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>这样拆分后，逻辑就分为了两个部分，第一部分是判断年纪的函数，第二部分是筛选结果的函数。</p> <p>如果，以后我们的需求有了变化，不筛选学生年纪了，改成了筛选学生姓名，或者一些其它的东西，那么我们只需要改动判断年纪的函数就行了，筛选结果的函数不变。</p> <p>嗯，可能有人会说，这太简单了，那么，稍微来点难度的东西！</p> <p>假如，我们有这样一个数组:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[
+    {
+        name: '张三',
+        age: '26',
+        price: '1000'
+    },
+    {
+        name: '李四',
+        age: '25',
+        price: '3655'
+    },
+    {
+        name: '王五',
+        age: '30',
+        price: '8888'
+    },
+]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>我们要实现上面的功能，使用高阶函数来做转换：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const result = array.reduce((value, item, index) =&gt; {
+  value[index] = {
+    name: item[0],
+    age: item[1],
+    price: item[2]
+  };
+  return value;
+}, []);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>这里我们使用了ES6的高阶函数reduce，具体相关介绍可以去看凹凸实验室写的<a href="https://aotu.io/notes/2016/04/14/js-reduce/index.html" target="_blank" rel="noopener noreferrer">JavaScript中reduce()方法不完全指南<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>;</p> <p>ok，到了这里，已经对函数式编程有了些简单的概念了，我所理解的函数式编程是：</p> <blockquote><p>编写代码的时候，函数式编程更多的是从声明式的方法，而传统的编程更多的是命令式的方法。例如，上面的筛选学生年纪，传统的编程思想是，我创建了什么，我循环了什么，我判断了什么，得出了什么结果；函数式编程的思想是，我声明了一个筛选的函数，我声明了一个判断的函数，我把这两个函数结合起来，得出了一个结果。</p></blockquote> <h3 id="从函数式编程到节流函数；"><a href="#从函数式编程到节流函数；" aria-hidden="true" class="header-anchor">#</a> 从函数式编程到节流函数；</h3> <p>节流函数说白了，就是一个控制事件触发频率的函数，以前可以一秒内，无限次触发，现在限制成500毫秒触发一次，在短时间内只触发一次，达到优化的目的，如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>throttle(fn, wait=500) {
+    if (typeof fn != &quot;function&quot;) {
+        // 必须传入函数
+        throw new TypeError(&quot;Expected a function&quot;)
+    }
+    // 定时器
+    let timer,
+    // 是否是第一次调用
+    firstTime = true;
+    
+    // 这里不能用箭头函数，是为了绑定上下文
+    return function (...args) {
+        // 第一次
+        if (firstTime) {
+            firstTime = false;
+            fn.apply(this,args);
+        }
+        
+        if (timer) {
+            return;
+        }else {
+            timer = setTimeout(() =&gt; {
+                clearTimeout(timer);
+                timer = null;
+                fn.apply(this, args);
+            },wait)
+        }
+
+    }
+}
+
+// 单独使用，限制快速连续不停的点击，按钮只会有规律的每500ms点击有效
+button.addEventListener('click', throttle(() =&gt; {
+    console.log('hhh')
+}))
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><p>写好了这样一个高阶函数后，我们就可以在各处调用了，比如：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 有一个点击增加的功能，但是要求最少过了1秒才能增加一次，就可以
+const add = x =&gt; x++;
+throttle(add,1000);
+
+// 又有了一个减少的功能，但是要求最少2秒减少一次
+const cutDown = x =&gt; x--;
+throttle(cutDown,2000);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>到这里已经明白了什么是高阶函数，但是还不够，还需要了解一些函数式编程的重要概念</p> <h3 id="纯函数"><a href="#纯函数" aria-hidden="true" class="header-anchor">#</a> 纯函数</h3> <p>在函数式编程的概念中，还有一个重要的概念是纯函数，那么什么是纯函数呢?
+在此，我们先了解一下什么叫<strong>数学函数</strong>；</p> <blockquote><p>一般的，在一个变化过程中，假设有两个变量 x、y，如果对于任意一个 x 都有唯一确定的一个y和它对应，那么就称 x 是自变量，y 是 x 的函数。x 的取值范围叫做这个函数的定义域，相应 y 的取值范围叫做函数的值域。</p></blockquote> <p>以上定义，在初中数学咱们都应该学过...</p> <p>换句话说，函数只是两种数值之间的关系：输入和输出。</p> <p>尽管每个输入都只会有一个输出，但不同的输入却可以有相同的输出。下图展示了一个合法的从 x 到 y 的函数关系；
+<img src="/image/jichu/chunhanshu1.jpg" style="width:50%;display:block;margin:0 auto;">
+与之相反，下面这张图表展示的就不是一种函数关系，因为输入值 5 指向了多个输出：
+<img src="/image/jichu/chunhanshu2.jpg" style="width:50%;display:block;margin:0 auto;"></p> <p><strong>那回过头来看看什么叫纯函数？</strong></p> <blockquote><p>纯函数是这样一种函数，即相同的输入，永远会得到相同的输出，而且没有任何可观察的副作用。
+他的重点在于“相同的输入，永远会得到相同的输出”，后面所说的副作用也是为了满足这一点。</p></blockquote> <p>根据定义可以看出纯函数其实就是数学函数，即表示从输入的参数到输出结果的映射。</p> <p>而没有副作用的纯函数显然都是引用透明的。</p> <blockquote><p>引用透明性（Referential Transparency）指的是，如果一段代码在不改变整个程序行为的前提下，可以替换成它的执行结果。</p></blockquote> <p>说了半天，什么是副作用（Side Effects）？</p> <blockquote><p>副作用是在计算的过程中，系统状态的一种变化，或者与外部世界进行的可观察的交互。</p></blockquote> <p>副作用可能包含，但不限于以下行为：</p> <ul><li>更改文件系统</li> <li>往数据库中插入记录</li> <li>发送一个 http 请求</li> <li>改变数据</li> <li>打印 log</li> <li>获取用户输入</li> <li>DOM 查询</li> <li>访问系统状态</li> <li>...</li></ul> <blockquote><p>只要是跟函数外部环境发生的交互就都是副作用——这一点可能会让你怀疑无副作用编程的可行性。函数式编程的哲学就是假定副作用是造成不正当行为的主要原因。</p></blockquote> <p>当然这并不是说，要禁止使用一切副作用，而是说，要让它们在可控的范围内发生。在后面讲到函子（functor）和单子（monad）的时候我们会学习如何控制它们。</p> <p><strong>纯函数的好处都有啥</strong></p> <blockquote><p>面向对象语言的问题是，它们永远都要随身携带那些隐式的环境。你只需要一个香蕉，但却得到一个拿着香蕉的大猩猩...以及整个丛林<br>
+by Erlang 作者：Joe Armstrong</p></blockquote> <p>所以使用纯函数将会有以下好处：</p> <ul><li>可缓存性（Cacheable）</li> <li>可移植性／自文档化（Portable / Self-Documenting）</li> <li>可测试性（Testable）</li> <li>合理性（Reasonable）</li> <li>并行代码（Parallel Code）</li></ul> <p><strong>为什么要避免改变状态和可变数据？</strong></p> <blockquote><p>Shared mutable state is the root of all evil<br>
+共享可变状态是万恶之源<br>
+by Pete Hunt</p></blockquote> <p>好了好了，先暂时告别理论；来用代码解释：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const z = 10;
+add(x, y) {
+    return x + y;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>上面的add函数就是一个纯函数，它读取x和y两个参数的值，返回它们的和，并且不会受到全局的z变量的影响</p> <p>把这个函数改一下</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const z = 10;
+add(x, y) {
+    return x + y + z;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>这个函数就变成了不纯的函数了，因为它返回的值会受到全局的z的影响</p> <p>换句话说，这个函数会被外部环境影响</p> <p>so，我们就得出了第一个判断是否纯函数的重要依据</p> <blockquote><p>1、纯函数不会受到外部环境的影响</p></blockquote> <p>再用splice和slice来解释一下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>var xs = [1,2,3,4,5];
+
+// 纯的
+xs.slice(0,3);
+//=&gt; [1,2,3]
+
+xs.slice(0,3);
+//=&gt; [1,2,3]
+
+xs.slice(0,3);
+//=&gt; [1,2,3]
+
+
+// 不纯的
+xs.splice(0,3);
+//=&gt; [1,2,3]
+
+xs.splice(0,3);
+//=&gt; [4,5]
+
+xs.splice(0,3);
+//=&gt; []
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p><span style="color:red;"><strong>slice</strong></span>收到同样的参数，每次返回相同的值，所以是纯函数</p> <p><span style="color:red;"><strong>splice</strong></span>收到同样的参数，每次返回不同的值，所以不是纯函数</p> <p>so，我们就得出了第二个判断是否纯函数的重要依据:</p> <blockquote><p>2、纯函数相同的输入，永远会得到相同的输出</p></blockquote> <p>所以回到上面对于纯函数的定义，纯函数是:</p> <blockquote><p><span style="color:red;"><strong>纯函数是这样一种函数，即相同的输入，永远会得到相同的输出，而且没有任何可观察的副作用</strong></span></p></blockquote> <p><strong>使用纯函数能够极大的降低编程的复杂度，但是不合理的使用，为了抽象而去抽象，反而会使代码变得非常难以理解。</strong></p> <h3 id="柯里化"><a href="#柯里化" aria-hidden="true" class="header-anchor">#</a> 柯里化</h3> <div class="tip custom-block"><p class="custom-block-title">概念</p> <p>柯里化的概念很简单：只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数</p></div> <div class="language- line-numbers-mode"><pre class="language-text"><code>const add = x =&gt; y =&gt; x + y;
+add(1)(2);
+// =&gt; 3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>上面的例子，就是一个很典型的柯里化函数，在我们第一次调用的时候，接收了第一次传入的参数（用闭包记住），返回了一个新的函数；在第二次调用的时候，接收第二次传入的参数，并且和第一次传入的函数相加，返回它们的和。</p> <p>这个例子说明了柯里化的一个特征，或者说是一个基础，即柯里化函数有延迟求值的特殊性，而这种特殊性又需要用到一些手段来实现。</p> <p>运用上面的思想编写一个的柯里化函数</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 创建柯里化函数，保存了第一次传入的参数和函数，返回值
+//是一个函数并且接收第二次传入参数，同时调用传入的函数进行计算
+currying (fn, ...args1) {
+    return (...args2) =&gt; {
+        return fn(...args1, ...args2)
+    }
+}
+
+// 定义一个一般函数
+const add = (x, y) =&gt; x + y;
+
+// 使用
+const increment = currying(add, 1);
+console.log(increment(2));
+const addTen = currying(add, 10);
+console.log(addTen(2));
+
+// =&gt; 3
+// =&gt; 12
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>这个列子还有点小问题，即返回的值没有自动柯里化，可以改造下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>currying(fn, ...args1) {
+  // '判断传入的参数是否满足传入函数需要的参数，比如说add函数需要两个参数相加，
+  //那么判断是否传入了两个参数，满足调用传入函数计算结果'
+  if (args1.length &gt;= fn.length) {
+    console.log(args1, '--1--');
+    return fn(...args1);
+  }
+  // '不满足返回一个新的函数，继续调用柯里化函数，传入保存的第一次传入的函数，
+  //传入保存的第一次传入的参数，传入第二次传入的参数，继续上面的判断逻辑，返回计算结果'
+  return (...args2) =&gt; {
+    console.log(args2, '--2--');
+    return currying(fn, ...args1, ...args2);
+  };
+},
+
+// 定义一个一般函数
+const add = (x, y) =&gt; x + y;
+
+// 使用
+const increment = currying(add, 1);
+console.log(increment(2));
+const addTen = currying(add, 10);
+console.log(addTen(2));
+
+// =&gt; [2] --2--
+// =&gt; [1,2] --1--
+// =&gt; 3
+// =&gt; [2] --2--
+// =&gt; [10,2] --1--
+// =&gt; 12
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><p>函数在js中是一等公民，它和其它对象，或者其它数据没有什么区别，可以存在数组，存在对象，赋值给变量，当作参数传来传去，所以函数也有下标属性，用上面的例子证明一下</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const add = (x, y) =&gt; x + y;
+console.log(add.length)
+// =&gt; 2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>在ES6中，...是扩展运算符，他的使用是这样的</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 放在函数作为单独参数，会把一个数组变成参数序列，比如上面例子中的数组[1,2]变成了参数x=1,y=2
+fn(...args1)
+
+// 放在函数中作为第二个参数，会把传入的值变成一个数组，
+//如果传入的是一个数组那么还是数组，传入一个对象，会变成一个数组对象
+function currying(fn,...x) {
+	console.log(x)
+}
+currying(0,1)
+// =&gt; [1]
+
+// 放在回调函数中作为第二个和第三个参数
+// 第一次调用会返回一个函数，会在闭包里存贮值，
+//第二次调用会把闭包里的值和第二次参数里的值合并成数组
+return currying(fn, ...args1, ...args2);
+// =&gt; [1,2]
+
+// 但是单独在函数中这么使用会报错
+function currying(fn,...x,...y) {
+	console.log(x)
+}
+currying(0,1,2)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>理解了这些，上面的例子就很好懂了。</p> <p>柯里化函数比较重要的思想是：</p> <blockquote><p><span style="color:red;"><strong>多次判断传入的参数是否满足计算需求，满足，返回计算结果，如果不满足，继续返回一个新的柯里化函数</strong></span></p></blockquote> <p>上面的柯里化函数还可以继续优化，比如说，this绑定啊，特殊的变量占位符啊，等等，这样的工作，一些库，比如说ramda已经实现，可以去看它的源代码里面是怎样实现的，重点还是要明白柯里化函数是怎么一回事。</p> <h3 id="代码组合"><a href="#代码组合" aria-hidden="true" class="header-anchor">#</a> 代码组合</h3> <p>首先，先写一个简单的组合函数：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const compose = (f, g) =&gt; x =&gt; f(g(x));
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>这个组合函数接收两个函数当作参数，然后返回一个新的函数，x是两个函数之间都要使用的值，比如说：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 我们要实现一个给字符串全部变成大写，然后加上个感叹号的功能，只需要定义两个函数，然后组合一下
+const toUpperCase = x =&gt; x.toUpperCase();
+const exclaim = x =&gt; `${x}!`;
+const shout = compose(exclaim, toUpperCase);
+
+shout('hello world')
+// =&gt; HELLO WORLD!
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>注意：组合函数里面，g函数比f函数先执行，所以在组合里面，是从右往左执行的，也就是说，要把先执行的函数放在组合函数的右边</p> <p>这个组合函数还是有点问题，它只能接收2个参数，我们来稍微改造下，让它变得强大点：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const compose = (...fns) =&gt; (...args) =&gt; fns.reduceRight((res, fn) =&gt; [fn.call(null, ...res)], args)[0];
+
+// 使用，实现一个功能，字符串变成大写，加上个感叹号，还要截取一部分，再在前面加上注释
+const toUpperCase = x =&gt; x.toUpperCase();
+const exclaim = x =&gt; `${x}!`;
+const head = x =&gt; `slice is: ${x}`;
+const reverse = x =&gt; x.slice(0, 7);
+
+const shout = compose(exclaim, toUpperCase, head, reverse)
+shout('my name is maya')
+// =&gt; SLICE IS: MY NAME!
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p><strong>组合的原理其实就是数学中的结合律：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(a + b) + c  =  a + (b + c)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>so，在组合中你可以这样</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 第一种
+const one = compose(exclaim, toUpperCase)
+const shout = compose(one, head, reverse)
+shout('my name is maya')
+// =&gt; SLICE IS: MY NAME!
+
+// 第二种
+const two = compose(toUpperCase, head)
+const shout = compose(exclaim, two, reverse)
+shout('my name is maya')
+// =&gt; SLICE IS: MY NAME!
+
+// 第三种
+const three = compose(head, reverse)
+const shout = compose(exclaim, toUpperCase, three)
+shout('my name is maya')
+// =&gt; SLICE IS: MY NAME!
+
+...
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>so，到了这里，我对组合的理解是：</p> <blockquote><p>组合是什么，组合就是运用了数学里的结合律，像是搭积木一样，把不同的函数联系起来，让数据在里面流动</p></blockquote> <p>在各种库里面都有组合的函数，lodash，underscore，ramda等等，比如在underscore里面，组合是这样的：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>  // Returns a function that is the composition of a list of functions, each
+  // consuming the return value of the function that follows.
+  _.compose = function() {
+    var args = arguments;
+    var start = args.length - 1;
+    return function() {
+      var i = start;
+      var result = args[start].apply(this, arguments);
+      while (i--) result = args[i].call(this, result);
+      return result;
+    };
+  };
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="结合使用"><a href="#结合使用" aria-hidden="true" class="header-anchor">#</a> 结合使用</h3> <p>嗯，到了这里，已经初步了解了函数式编程的概念了，那么我们怎么使用函数式编程的方式写代码呢，举个例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 伪代码，思路
+// 比如说，我们请求后台拿到了一个数据，然后我们需要筛选几次这个数据, 取出里面的一部分，并且排序
+
+// 数据
+const res = {
+    status: 200,
+    data: [
+        {
+            id: xxx,
+            name: xxx,
+            time: xxx,
+            content: xxx,
+            created: xxx
+        },
+        ...
+    ]
+}
+
+// 封装的请求函数
+const http = xxx;
+
+// '传统写法是这样的'
+http.post
+    .then(res =&gt; 拿到数据)
+    .then(res =&gt; 做出筛选)
+    .then(res =&gt; 做出筛选)
+    .then(res =&gt; 取出一部分)
+    .then(res =&gt; 排序)
+    
+// '函数式编程是这样的'
+// 声明一个筛选函数
+const a = curry()
+// 声明一个取出函数
+const b = curry()
+// 声明一个排序函数
+const c = curry()
+// 组合起来
+const shout = compose(c, b, a)
+// 使用
+shout(http.post)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><h3 id="如何在项目中正式使用函数式编程"><a href="#如何在项目中正式使用函数式编程" aria-hidden="true" class="header-anchor">#</a> 如何在项目中正式使用函数式编程</h3> <p>我觉得，想要在项目里面正式使用函数式编程有这样几个步骤：</p> <ul><li>1、先尝试使用ES6自带的高阶函数</li> <li>2、熟悉了ES6自带的高阶函数后，可以自己尝试写几个高阶函数</li> <li>3、在这个过程中，尽量使用纯函数编写代码</li> <li>4、对函数式编程有所了解之后，尝试使用类似ramda的库来编写代码</li> <li>5、在使用ramda的过程中，可以尝试研究它的源代码</li> <li>6、尝试编写自己的库，柯里化函数，组合函数等</li></ul> <p>当然了，这个只是我自己的理解，我在实际项目中也没有完全的使用函数式编程开发，我的开发原则是：</p> <blockquote><p>不要为了函数式而选择函数式编程。如果函数式编程能够帮助你，能够提升项目的效率，质量，可以使用；如果不能，那么不用；如果对函数式编程还不太熟，比如我这样的，偶尔使用</p></blockquote> <h3 id="扩展"><a href="#扩展" aria-hidden="true" class="header-anchor">#</a> 扩展</h3> <p>函数式编程是在范畴论的基础上发展而来的，而关于函数式编程和范畴论的关系，阮一峰大佬给出了一个很好的说明，在这里复制粘贴下他的文章<br> <strong>本质上，函数式编程只是范畴论的运算方法，跟数理逻辑、微积分、行列式是同一类东西，都是数学方法，只是碰巧它能用来写程序</strong><br>
+所以，你明白了吗，为什么函数式编程要求函数必须是纯的，不能有副作用？因为它是一种数学运算，原始目的就是求值，不做其他事情，否则就无法满足函数运算法则了。</p> <p><a href="https://juejin.im/post/5d1185846fb9a07ed2247b42" target="_blank" rel="noopener noreferrer">参考<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>;</p></div> <!----> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Thomas: </span> <span class="time">11/22/2019, 6:37:20 PM</span></div></footer> <!----> </main> <div class="valine-wrapper" data-v-5029e45b><div id="valine" data-v-5029e45b></div></div></div> <div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;background-color:rgba(231, 234, 241,.5);display:none;" data-v-cd623d78 data-v-cd623d78><i class="iconfont reco-up" data-v-cd623d78></i></div></div></div></div><div class="global-ui"><SWUpdatePopup></SWUpdatePopup></div></div>
+    <script src="/assets/js/app.6c43a8ba.js" defer></script><script src="/assets/js/4.c3bde6d6.js" defer></script><script src="/assets/js/1.0b311d40.js" defer></script><script src="/assets/js/37.0cb5d3f8.js" defer></script>
+  </body>
+</html>

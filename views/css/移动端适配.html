@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>移动端适配-CSS篇 | 一颗石子激起的浪花</title>
+    <meta name="description" content="经不住流年似水，逃不过此间少年">
+    <link rel="icon" href="/me.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.92830278.css" as="style"><link rel="preload" href="/assets/js/app.6c43a8ba.js" as="script"><link rel="preload" href="/assets/js/4.c3bde6d6.js" as="script"><link rel="preload" href="/assets/js/1.0b311d40.js" as="script"><link rel="preload" href="/assets/js/28.19c7c106.js" as="script"><link rel="prefetch" href="/assets/js/10.22efda82.js"><link rel="prefetch" href="/assets/js/11.122508c3.js"><link rel="prefetch" href="/assets/js/12.4e32ad98.js"><link rel="prefetch" href="/assets/js/13.bf84d324.js"><link rel="prefetch" href="/assets/js/14.5c5b7f74.js"><link rel="prefetch" href="/assets/js/15.84f9dd89.js"><link rel="prefetch" href="/assets/js/16.c612419e.js"><link rel="prefetch" href="/assets/js/17.594239d1.js"><link rel="prefetch" href="/assets/js/18.39405176.js"><link rel="prefetch" href="/assets/js/19.46b55618.js"><link rel="prefetch" href="/assets/js/20.6483f6bd.js"><link rel="prefetch" href="/assets/js/21.28ffff2c.js"><link rel="prefetch" href="/assets/js/22.e987c6c0.js"><link rel="prefetch" href="/assets/js/23.f5cf285c.js"><link rel="prefetch" href="/assets/js/24.bd39e29b.js"><link rel="prefetch" href="/assets/js/25.653be34d.js"><link rel="prefetch" href="/assets/js/26.c1b49b41.js"><link rel="prefetch" href="/assets/js/27.545a7557.js"><link rel="prefetch" href="/assets/js/29.71d8f226.js"><link rel="prefetch" href="/assets/js/30.ce44c73e.js"><link rel="prefetch" href="/assets/js/31.6967c391.js"><link rel="prefetch" href="/assets/js/32.9d62c420.js"><link rel="prefetch" href="/assets/js/33.610c3395.js"><link rel="prefetch" href="/assets/js/34.ea085f19.js"><link rel="prefetch" href="/assets/js/35.1ca64446.js"><link rel="prefetch" href="/assets/js/36.0a94a6a3.js"><link rel="prefetch" href="/assets/js/37.0cb5d3f8.js"><link rel="prefetch" href="/assets/js/38.90a1b6d5.js"><link rel="prefetch" href="/assets/js/39.f3a9682f.js"><link rel="prefetch" href="/assets/js/40.6ccfb534.js"><link rel="prefetch" href="/assets/js/41.60780922.js"><link rel="prefetch" href="/assets/js/42.ee67625a.js"><link rel="prefetch" href="/assets/js/43.279eedf9.js"><link rel="prefetch" href="/assets/js/44.c03b7fa9.js"><link rel="prefetch" href="/assets/js/45.6dc104ac.js"><link rel="prefetch" href="/assets/js/46.3675ee32.js"><link rel="prefetch" href="/assets/js/47.69b2af5f.js"><link rel="prefetch" href="/assets/js/48.36f2e381.js"><link rel="prefetch" href="/assets/js/49.1944fc1b.js"><link rel="prefetch" href="/assets/js/5.b86013de.js"><link rel="prefetch" href="/assets/js/50.f0b6ecad.js"><link rel="prefetch" href="/assets/js/51.e23cb380.js"><link rel="prefetch" href="/assets/js/52.b18c3dd4.js"><link rel="prefetch" href="/assets/js/53.19ede3ff.js"><link rel="prefetch" href="/assets/js/54.302f4a46.js"><link rel="prefetch" href="/assets/js/55.a847db5c.js"><link rel="prefetch" href="/assets/js/56.46a883a5.js"><link rel="prefetch" href="/assets/js/57.dbc23a94.js"><link rel="prefetch" href="/assets/js/58.6932db49.js"><link rel="prefetch" href="/assets/js/59.53e8939e.js"><link rel="prefetch" href="/assets/js/6.a3bcf7c4.js"><link rel="prefetch" href="/assets/js/60.3b3d2f9b.js"><link rel="prefetch" href="/assets/js/61.e43c6f36.js"><link rel="prefetch" href="/assets/js/62.583652e3.js"><link rel="prefetch" href="/assets/js/63.e8860641.js"><link rel="prefetch" href="/assets/js/64.13ebc5ad.js"><link rel="prefetch" href="/assets/js/65.e9c8e7ea.js"><link rel="prefetch" href="/assets/js/66.fa52a850.js"><link rel="prefetch" href="/assets/js/67.f706d6af.js"><link rel="prefetch" href="/assets/js/7.01e04509.js"><link rel="prefetch" href="/assets/js/8.b66213d7.js"><link rel="prefetch" href="/assets/js/9.f05367e5.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.f9b1147b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.92830278.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container"><div><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/photo.png" alt="一颗石子激起的浪花" class="logo"> <span class="site-name">一颗石子激起的浪花</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="theme-options"><!----> <div class="dark-theme-options toggle-option"><label for="dark-theme-toggle">Enable Dark Theme?</label> <input id="dark-theme-toggle" type="checkbox" checked="checked"></div></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  HOME
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/category/react.html" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/category/css.html" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/category/Egret.html" class="nav-link"><i class="iconfont undefined"></i>
+  Egret
+</a></li><li class="dropdown-item"><!----> <a href="/category/前端基础.html" class="nav-link"><i class="iconfont undefined"></i>
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/category/拓展.html" class="nav-link"><i class="iconfont undefined"></i>
+  拓展
+</a></li><li class="dropdown-item"><!----> <a href="/category/RN.html" class="nav-link"><i class="iconfont undefined"></i>
+  RN
+</a></li><li class="dropdown-item"><!----> <a href="/category/tool.html" class="nav-link"><i class="iconfont undefined"></i>
+  tool
+</a></li><li class="dropdown-item"><!----> <a href="/category/vue.html" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><a href="/hobby/" class="nav-link"><i class="iconfont reco-document"></i>
+  诗和远方
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  短文
+</a></div><div class="nav-item"><a href="/link/" class="nav-link"><i class="iconfont reco-other"></i>
+  拓展
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      CONTACT
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/yangxiansheng1992" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.cnblogs.com/thomas-yang-github/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bokeyuan"></i>
+  博客园
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/6dfa7cc0b6b5" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/hobby/wechat.html" class="nav-link"><i class="iconfont reco-wechat"></i>
+  微信公众号
+</a></li><li class="dropdown-item"><!----> <a href="https://freecodecamp.cn/yangxiansheng1992" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  freecodecamp
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://leetcode-cn.com/u/yang-xian-sheng-e/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  leetcode-cn
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://codepen.io/dashboard/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  codepen
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  HOME
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/category/react.html" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/category/css.html" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/category/Egret.html" class="nav-link"><i class="iconfont undefined"></i>
+  Egret
+</a></li><li class="dropdown-item"><!----> <a href="/category/前端基础.html" class="nav-link"><i class="iconfont undefined"></i>
+  前端基础
+</a></li><li class="dropdown-item"><!----> <a href="/category/拓展.html" class="nav-link"><i class="iconfont undefined"></i>
+  拓展
+</a></li><li class="dropdown-item"><!----> <a href="/category/RN.html" class="nav-link"><i class="iconfont undefined"></i>
+  RN
+</a></li><li class="dropdown-item"><!----> <a href="/category/tool.html" class="nav-link"><i class="iconfont undefined"></i>
+  tool
+</a></li><li class="dropdown-item"><!----> <a href="/category/vue.html" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li></ul></div></div><div class="nav-item"><a href="/hobby/" class="nav-link"><i class="iconfont reco-document"></i>
+  诗和远方
+</a></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  短文
+</a></div><div class="nav-item"><a href="/link/" class="nav-link"><i class="iconfont reco-other"></i>
+  拓展
+</a></div><div class="nav-item"><a href="/timeLine/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间线
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      CONTACT
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/yangxiansheng1992" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.cnblogs.com/thomas-yang-github/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bokeyuan"></i>
+  博客园
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/6dfa7cc0b6b5" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="/hobby/wechat.html" class="nav-link"><i class="iconfont reco-wechat"></i>
+  微信公众号
+</a></li><li class="dropdown-item"><!----> <a href="https://freecodecamp.cn/yangxiansheng1992" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  freecodecamp
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://leetcode-cn.com/u/yang-xian-sheng-e/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  leetcode-cn
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://codepen.io/dashboard/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont undefined"></i>
+  codepen
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>移动端适配-CSS篇</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/views/css/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D.html#base-scss" class="sidebar-link">base.scss</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/views/css/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D.html#compass-scss" class="sidebar-link">compass.scss</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <div><main class="page reco-hide"> <div class="page-title"><h1>移动端适配-CSS篇</h1> <hr> <div data-v-362e684e><i class="iconfont reco-account" data-v-362e684e><span data-v-362e684e>Thomas</span></i> <i class="iconfont reco-date" data-v-362e684e><span data-v-362e684e>2019-9-11</span></i> <span id="/views/css/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-2e99e05a data-v-362e684e><i class="iconfont reco-eye" style="margin-right: .5rem" data-v-2e99e05a></i> <a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;" data-v-2e99e05a></a></span> <i class="iconfont reco-tag tags" data-v-362e684e><span class="tag-item" data-v-362e684e>
+      css
+    </span></i></div></div> <div class="content__default"><blockquote><p>通过scss或者less等CSS预处理器来设定一些特定函数，来达到适配兼容写法，下面列举一些例子：</p></blockquote> <h2 id="base-scss"><a href="#base-scss" aria-hidden="true" class="header-anchor">#</a> base.scss</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>html {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    /* iPhone5 每100像素宽字体增加1px(14px-16px) */
+    @include prefixer-value(font-size, calc(87.5% + 2 * (100vw - 320px) / 27.5), webkit moz o ms);
+    @include prefixer-value(font-size, calc(14px + 2 * (100vw - 320px) / 27.5), webkit moz o ms);
+  }
+}
+
+@media screen and (min-width: 375px) {
+  html {
+    /* iPhone6的375px尺寸作为16px基准，414px正好18px大小, 600 20px */
+    @include prefixer-value(font-size, calc(100% + 2 * (100vw - 375px) / 39), webkit moz o ms);
+    @include prefixer-value(font-size, calc(16px + 2 * (100vw - 375px) / 39), webkit moz o ms);
+  }
+}
+
+@media screen and (min-width: 414px) {
+  html {
+    /* 414px-1000px每100像素宽字体增加1px(18px-22px) */
+    @include prefixer-value(font-size, calc(112.5% + 4 * (100vw - 414px) / 586), webkit moz o ms);
+    @include prefixer-value(font-size, calc(18px + 4 * (100vw - 414px) / 586), webkit moz o ms);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  html {
+    /* 600px-1000px每100像素宽字体增加1px(20px-24px) */
+    @include prefixer-value(font-size, calc(125% + 4 * (100vw - 600px) / 400), webkit moz o ms);
+    @include prefixer-value(font-size, calc(20px + 4 * (100vw - 600px) / 400), webkit moz o ms);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  html {
+    /* 1000px往后是每100像素0.5px增加 */
+    @include prefixer-value(font-size, calc(137.5% + 6 * (100vw - 1000px) / 1000), webkit moz o ms);
+    @include prefixer-value(font-size, calc(22px + 6 * (100vw - 1000px) / 1000), webkit moz o ms);
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br></div></div><h2 id="compass-scss"><a href="#compass-scss" aria-hidden="true" class="header-anchor">#</a> compass.scss</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>$prefixForWebkit: true !default;
+$prefixForMozilla: true !default;
+$prefixForMicrosoft: true !default;
+$prefixForOpera: true !default;
+$prefixNo: true !default;
+
+/* 给属性加浏览器前缀 */
+@mixin prefixer($property, $value, $prefixes: o webkit) {
+  @each $prefix in $prefixes {
+    @if $prefix==webkit and $prefixForWebkit==true {
+      -webkit-#{$property}: $value;
+    }
+
+    @else if $prefix==moz and $prefixForMozilla==true {
+      -moz-#{$property}: $value;
+    }
+
+    @else if $prefix==ms and $prefixForMicrosoft==true {
+      -ms-#{$property}: $value;
+    }
+
+    @else if $prefix==o and $prefixForOpera==true {
+      -o-#{$property}: $value;
+    }
+  }
+
+  @if $prefixNo {
+    #{$property}: $value;
+  }
+}
+
+/* 给属性值加浏览器前缀 */
+@mixin prefixer-value($property, $value, $prefixes: webkit moz) {
+  @each $prefix in $prefixes {
+    @if $prefix==webkit and $prefixForWebkit==true {
+      #{$property}: -webkit-#{$value};
+    }
+
+    @else if $prefix==moz and $prefixForMozilla==true {
+      #{$property}: -moz-#{$value};
+    }
+
+    @else if $prefix==o and $prefixForMozilla==true {
+      #{$property}: -o-#{$value};
+    }
+
+    @else if $prefix==ms and $prefixForMicrosoft==true {
+      #{$property}: -ms-#{$value};
+    }
+  }
+
+  @if $prefixNo {
+    #{$property}: $value;
+  }
+}
+
+/* 给keyframes动画加前缀 */
+@mixin prefix-keyframes($animation-name) {
+  @keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+/* px转rem */
+@function px2rem($px) {
+  $baseFontSize: 16px;
+
+  @return ($px / $baseFontSize)+rem;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br></div></div><p>特别鸣谢：<a href="https://yixiu1043.top/2019/09/04/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D-css%E7%AF%87/" target="_blank" rel="noopener noreferrer">YIXIU<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>;</p></div> <!----> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Thomas: </span> <span class="time">10/11/2019, 3:49:46 PM</span></div></footer> <!----> </main> <div class="valine-wrapper" data-v-5029e45b><div id="valine" data-v-5029e45b></div></div></div> <div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;background-color:rgba(231, 234, 241,.5);display:none;" data-v-cd623d78 data-v-cd623d78><i class="iconfont reco-up" data-v-cd623d78></i></div></div></div></div><div class="global-ui"><SWUpdatePopup></SWUpdatePopup></div></div>
+    <script src="/assets/js/app.6c43a8ba.js" defer></script><script src="/assets/js/4.c3bde6d6.js" defer></script><script src="/assets/js/1.0b311d40.js" defer></script><script src="/assets/js/28.19c7c106.js" defer></script>
+  </body>
+</html>
